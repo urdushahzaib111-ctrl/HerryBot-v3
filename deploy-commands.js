@@ -1,4 +1,4 @@
-const { REST, Routes, SlashCommandBuilder } = require('discord.js');
+const { REST, Routes } = require('discord.js');
 const fs = require('fs');
 const path = require('path');
 
@@ -12,10 +12,6 @@ for (const file of commandFiles) {
     
     if ('data' in command && 'execute' in command) {
         commands.push(command.data.toJSON());
-    } else if (Array.isArray(command.data)) {
-        for (const subCmd of command.data) {
-            commands.push(subCmd.toJSON());
-        }
     }
 }
 
@@ -25,8 +21,9 @@ const rest = new REST().setToken(process.env.DISCORD_TOKEN);
     try {
         console.log(`Started refreshing ${commands.length} application (/) commands.`);
 
+        // Yeh specific server (Guild) par foran commands register kar dega
         const data = await rest.put(
-            Routes.applicationCommands(process.env.CLIENT_ID),
+            Routes.applicationGuildCommands(process.env.CLIENT_ID, process.env.GUILD_ID),
             { body: commands },
         );
 
@@ -35,4 +32,3 @@ const rest = new REST().setToken(process.env.DISCORD_TOKEN);
         console.error(error);
     }
 })();
-
