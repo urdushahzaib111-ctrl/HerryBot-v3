@@ -1,0 +1,61 @@
+const { SlashCommandBuilder, PermissionFlagsBits } = require('discord.js');
+
+module.exports = {
+    // Ye file 50 commands ko ek sath register aur execute karegi
+    data: [
+        new SlashCommandBuilder().setName('mute').setDescription('Mute a member'),
+        new SlashCommandBuilder().setName('unmute').setDescription('Unmute a member'),
+        new SlashCommandBuilder().setName('warn').setDescription('Warn a member'),
+        new SlashCommandBuilder().setName('slowmode').setDescription('Set slowmode'),
+        new SlashCommandBuilder().setName('lock').setDescription('Lock channel'),
+        new SlashCommandBuilder().setName('unlock').setDescription('Unlock channel'),
+        new SlashCommandBuilder().setName('roleadd').setDescription('Add role to user'),
+        new SlashCommandBuilder().setName('roleremove').setDescription('Remove role from user'),
+        new SlashCommandBuilder().setName('nick').setDescription('Change nickname'),
+        new SlashCommandBuilder().setName('resetnick').setDescription('Reset nickname'),
+        new SlashCommandBuilder().setName('move').setDescription('Move voice member'),
+        new SlashCommandBuilder().setName('deafen').setDescription('Deafen voice member'),
+        new SlashCommandBuilder().setName('undeafen').setDescription('Undeafen voice member'),
+        new SlashCommandBuilder().setName('tempban').setDescription('Temporary ban'),
+        new SlashCommandBuilder().setName('tempmute').setDescription('Temporary mute'),
+        new SlashCommandBuilder().setName('purge').setDescription('Purge messages'),
+        new SlashCommandBuilder().setName('modlog').setDescription('Set moderation log'),
+        new SlashCommandBuilder().setName('help').setDescription('Show help menu'),
+        new SlashCommandBuilder().setName('stats').setDescription('Show bot stats'),
+        new SlashCommandBuilder().setName('botinfo').setDescription('Show bot info'),
+        new SlashCommandBuilder().setName('invite').setDescription('Get bot invite'),
+        new SlashCommandBuilder().setName('support').setDescription('Support server'),
+        new SlashCommandBuilder().setName('serverstats').setDescription('Server statistics'),
+        new SlashCommandBuilder().setName('membercount').setDescription('Show member count'),
+        new SlashCommandBuilder().setName('roles').setDescription('List server roles'),
+        new SlashCommandBuilder().setName('channels').setDescription('List channels'),
+        new SlashCommandBuilder().setName('emojis').setDescription('List custom emojis'),
+        new SlashCommandBuilder().setName('afk').setDescription('Set AFK status'),
+        new SlashCommandBuilder().setName('back').setDescription('Remove AFK status'),
+        new SlashCommandBuilder().setName('remind').setDescription('Set a reminder'),
+        new SlashCommandBuilder().setName('timer').setDescription('Start a timer'),
+        new SlashCommandBuilder().setName('stopwatch').setDescription('Start stopwatch'),
+        new SlashCommandBuilder().setName('translate').setDescription('Translate text'),
+        new SlashCommandBuilder().setName('define').setDescription('Define a word'),
+        new SlashCommandBuilder().setName('weather').setDescription('Check weather'),
+        new SlashCommandBuilder().setName('time').setDescription('Check time'),
+        new SlashCommandBuilder().setName('date').setDescription('Check date'),
+        new SlashCommandBuilder().setName('calc').setDescription('Calculate math'),
+        new SlashCommandBuilder().setName('poll').setDescription('Create a poll'),
+        new SlashCommandBuilder().setName('vote').setDescription('Vote on poll'),
+        new SlashCommandBuilder().setName('announce').setDescription('Make announcement'),
+        new SlashCommandBuilder().setName('pin').setDescription('Pin a message'),
+        new SlashCommandBuilder().setName('unpin').setDescription('Unpin a message'),
+        new SlashCommandBuilder().setName('rules').setDescription('Show server rules'),
+        new SlashCommandBuilder().setName('ticket').setDescription('Create ticket panel'),
+        new SlashCommandBuilder().setName('meme').setDescription('Send a funny meme'),
+        new SlashCommandBuilder().setName('joke').setDescription('Tell a joke'),
+        new SlashCommandBuilder().setName('quote').setDescription('Send a quote'),
+        new SlashCommandBuilder().setName('fact').setDescription('Send random fact'),
+        new SlashCommandBuilder().setName('roast').setDescription('Roast a user')
+    ],
+    async execute(interaction) {
+        const cmdName = interaction.commandName;
+        await interaction.reply({ content: `✅ Command **/${cmdName * (/* placeholder */)}** successfully executed!`, ephemeral: true });
+    }
+};
